@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+function viewAllReimbursements() {
+    //creating object for XMLHttpRequest()
+    let xhr = new XMLHttpRequest();
+    //url to invoke ReimbursementUpdateServlet
+    let url = "http://localhost:8080/Project_1_revised/ViewPendingRequestsJSONServlet"
+   
+    let reimb_requests = null;
+    let tr = null;
+    let td = null;
+    
+    //get elements using DOM from table (reimb_table) that is defined in html page which is ManagementHome.html
+    let table = document.getElementById("reimb_table");
+    // Create an empty <tr> element and add it to the 1st position of the table:
+    
+    // Insert new cells <td> elements at the 1 to 4th position of the "new" <tr> element:
+    
+    xhr.onload = function(){
+        reimb_requests = JSON.parse(xhr.response);
+        
+        console.log(reimb_requests);
+        console.log(reimb_requests[1]);
+        console.log(reimb_requests.length);
+        
+        for(let index = 0; index < reimb_requests.length; index++){
+            
+            
+            
+            tr = document.createElement("tr");
+            td = document.createElement("td");
+            // Add data to the td elements
+            let row = table.insertRow(-1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
+            let cell5 = row.insertCell(4);
+            let cell6 = row.insertCell(5);
+            let cell7 = row.insertCell(6);
+            let cell8 = row.insertCell(7);
+            let cell9 = row.insertCell(8);
+            let cell10 = row.insertCell(9);
+//            cell1.innerHTML = polkamans[index]["id"];
+//            cell2.innerHTML = polkamans[index]["name"];
+//            cell3.innerHTML = polkamans[index]["hp"];
+//            cell4.innerHTML = polkamans[index]["o_id"];
+      
+            cell1.innerHTML = reimb_requests[index].reimb_id;
+            cell2.innerHTML = reimb_requests[index].reimb_amount;
+            cell3.innerHTML = reimb_requests[index].reimb_submitted;
+            cell4.innerHTML = reimb_requests[index].reimb_resolved;
+            cell5.innerHTML = reimb_requests[index].reimb_description;
+            cell6.innerHTML = reimb_requests[index].reimb_receipt;
+            cell7.innerHTML = reimb_requests[index].reimb_author;
+            cell8.innerHTML = reimb_requests[index].reimb_resolver;
+            cell9.innerHTML = reimb_requests[index].reimb_status_id;
+            cell10.innerHTML = reimb_requests[index].reimb_type_id;
+            console.log(index);
+//            table.appendChild(td);
+//            tr.appendChild(tr);
+            
+            
+            
+            
+        }
+    }
+    
+    //xhr object will open the url which is same as invoking servlet and servlet taking an action
+    xhr.open("GET", url);
+    xhr.send();
+}
+//as soon as i hit view all buttons it will trigger viewpastticketsservlet
+window.onload = function() {
+    viewAllReimbursements();
+}
+</script>
+
+</head>
+<body>
+
+
+<table class="reimb_table" id="reimb_table">
+	<tr>
+		<th>reimb_id</th>
+		<th>reimb_amount</th>
+		<th>reimb_submitted</th>
+		<th>reimb_resolved</th>
+		<th>reimb_description</th>
+		<th>reimb_receipt</th>
+		<th>reimb_author</th>
+		<th>reimb_resolver</th>
+		<th>reimb_status_id</th>
+		<th>reimb_type_id</th>
+	</tr>
+	</table>	
+	<br>
+	
+
+		
+
+</body>
+</html>

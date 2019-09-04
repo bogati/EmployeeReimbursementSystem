@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Reimbursement System</title>
+</head>
+<body>
+	<h1 style="color:green">You are now LOGGED IN!</h1>
+	
+	<p>If you would like to place a Reimbursement request, please fill out the following </p> <br>
+	<form method= POST action= "SubmitRequestServlet" id=submitrequest enctype="multipart/form-data">
+	<input type = "text" size = "35" name ="reimb_amount" id="reimb_amount" placeholder = "Reimbursement Amount"/> <br>
+	<input type = "text" size = "35" name ="reimb_description" id="reimb_description" placeholder = "Reimbursement Description"/> <br>
+<!-- 	<textarea rows="5" cols="50" name ="user_description" form="submitrequest"> </textarea><br> --> <br>
+	<input type = "file" size = "35" name ="reimb_receipt" id="reimb_receipt" placeholder = "Reimbursement Receipt"/> <br>
+	<input type = "number" size = "35" name ="reimb_author" id="reimb_author" placeholder = "Employee Id Number"/> <br>
+	<p>For Reimbursement Types Please enter 1 for "Lodging", 2 for "Travel", 3 for "Food" and 4 for "Others"</p> 
+	<input type = "number" size = "35" name ="reimb_type_id" id="reimb_type_id" placeholder = "Reimbursement Type Id"/> <br>
+	
+	<button>Submit Reimbursement Request</button>
+	</form>
+	<br>
+	
+	<form method= POST action="ViewJSONmyticketsServlet" id="ViewJSONmytickets" > <br>
+	<p>please enter the employee id to access your submit requests</p>
+	<input type = "number" size = "35" name ="reimb_author" id="reimb_author" placeholder = "Employee Id Number"/> <br>
+	
+	<button>Print all the Tickets in JSON format</button>
+	
+	</form> 
+	<br>
+	
+	<form action="GET" action="ViewMyTicketsServlet" id= ViewMyTicketsServlet> <br>
+	<!--  <p>please enter the employee id to access your submit requests</p>
+	<input type = "number" size = "35" name ="reimb_author" id="reimb_author" placeholder = "Employee Id Number"/> <br>
+	-->
+	<button>View My present and past Tickets</button>
+	</form> <br>
+	
+	<form method= GET action= "LogoutServlet" id=logout ><button>LOGOUT</button></form>
+	
+</body>
+</html>
+
+
+
+<!--  
+
+WHy the value in the text area does not get into the parameter 
+
+I do not need the following one 
+<input type = "text" size = "35" name ="reimb_submitted" id="reimb_submitted" placeholder = "Reimbursement Submitted"/> <br>
+
+need the following one 
+<input type = "text" size = "35" name ="reimb_resolved" id="reimb_resolved" placeholder = "Reimbursement Resolved"/> <br>
+<input type = "text" size = "35" name ="reimb_resolver" id="reimb_resolver" placeholder = "Reimbursement Resolver"/> <br>
+<p>For Reimbursement Statuses Please enter 1 for "Pending", 2 for "Approved", and 3 for "Denied" </p>
+<input type = "text" size = "35" name ="reimb_status_id" id="reimb_status_id" placeholder = "Reimbursement Status Id"/> <br>
+
+
+ -->

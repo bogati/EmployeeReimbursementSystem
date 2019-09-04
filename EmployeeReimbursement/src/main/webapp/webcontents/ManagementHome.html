@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+
+</head>
+<body>
+	<h1 style="color:green">You are now LOGGED IN!</h1>
+	<form method= GET action= "LogoutServlet" id=logout ><button>LOGOUT</button></form> <br> <br>
+	
+	<p> Please view the reimbursement requests </p>
+	<form method= POST action= "ReimbursementUpdateServlet" id=reimbursementupdate >
+	<input type = "number" size = "45" name ="reimb_resolver" id="reimb_resolver" placeholder = "Manager Id Number"/> <br>
+	<input type = "number" size = "45" name ="reimb_author" id="reimb_author" placeholder = "Employee Id Number"/> <br>
+	<input type = "number" size = "45" name ="reimb_id" id="reimb_id" placeholder = "Reimbursement Id Number"/> <br>
+	<p>For Reimbursement Statuses Please enter 1 for "Pending", 2 for "Approved", and 3 for "Denied" </p>
+	<input type = "number" size = "45" name ="reimb_status_id" id="reimb_status_id" placeholder = "Reimbursement Status Id"/> <br>
+	<br>
+	<button>Update Reimbursement Request</button> <br>
+	<br>
+	</form>
+	
+	<form method= GET action="ViewPastTicketsServlet" id="viewreimbursementtickets" >
+	<p> If wanted JSON file can be found here </p> 
+	<button>Print all the Tickets in JSON format</button> 
+	
+	</form>
+	
+	<form method = GET action="ViewAllTicketsServlet" id="ViewAllTicketsServlet">
+	<br>
+	<button>View all the Tickets in table </button>
+	
+	</form>
+	
+	<form method = GET action="ViewPendingRequests" id="ViewPendingRequests">
+	<br>
+	<button>View all the Pending Reimbursement Requests </button>
+	
+	</form>
+	
+
+</body>
+</html>
+
+
+
+<!--  
+
+WHy the value in the text area does not get into the parameter 
+
+I do not need the following one 
+<input type = "text" size = "35" name ="reimb_submitted" id="reimb_submitted" placeholder = "Reimbursement Submitted"/> <br>
+
+need the following one 
+
+<input type = "text" size = "35" name ="reimb_resolved" id="reimb_resolved" placeholder = "Reimbursement Resolved"/> <br>
+
+<input type = "text" size = "35" name ="reimb_resolved" id="reimb_resolved" placeholder = "Reimbursement Resolved"/> <br>
+<input type = "text" size = "35" name ="reimb_resolver" id="reimb_resolver" placeholder = "Reimbursement Resolver"/> <br>
+<p>For Reimbursement Statuses Please enter 1 for "Pending", 2 for "Approved", and 3 for "Denied" </p>
+<input type = "text" size = "35" name ="reimb_status_id" id="reimb_status_id" placeholder = "Reimbursement Status Id"/> <br>
+
+
+ -->
